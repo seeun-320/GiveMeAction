@@ -1,5 +1,4 @@
 import React from 'react';
-// import { firestore } from "./firebase";
 import {
   BrowserRouter as Router,
   Switch,

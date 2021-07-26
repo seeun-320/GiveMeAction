@@ -1,19 +1,20 @@
-import React, { useState, useEffect, Component } from 'react';
+import React from 'react';
 import Clock from 'react-live-clock';
 
-import { Link } from 'react-router-dom';
 
 import './alarm.css';
 
-var now = new Date();                                                  // 현재시간
-var min = now.getMinutes();
-var hour = now.getHours();
 
-function Alarm() {
-   
+function Alarm({location, history}) {
+    const sound = location.search.split(/[=|&]/)[1]
+    const pose = location.search.split(/[=|&]/)[3]
+
+    function goTrain(){
+        history.push('/training?pose='+pose)
+    }
     // printTime();
     return (<>
-        <body>
+        <div>
             <div id="timebox" className="alarmdiv">
                 <span id="clock">
                     <Clock format={'HH : mm'} ticking={true}/>
@@ -23,9 +24,9 @@ function Alarm() {
                     <Clock format={'yyyy. MM. DD dddd'}/>
                     </span>
             </div>
-            <div id="btnbox" className="alarmdiv"><button id="Abutton" class="btn-1" type="button">start training</button></div>
+            <div id="btnbox" className="alarmdiv"><button id="Abutton" className="btn-1" type="button" onClick={goTrain}>start training</button></div>
 
-        </body>
+        </div>
     </>)
     
 }

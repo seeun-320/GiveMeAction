@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './main.css';
 
 import getAlarmList from '../functions/getAlarmList';
+import alarmOn from '../functions/alarmOn';
 
 import Alarm from '../components/Alarm';
 
@@ -10,17 +11,17 @@ function Main() {
     const [list, setList] = useState([]);
 
     useEffect(() => {
+      alarmOn()
       // 메모를 서버에 요쳥해서 불러오는 함수
       getAlarmList((success, memo_list) => {
         if (success) {
           setList(memo_list);
-          console.log(list)
         } else {
           alert('서버에 오류가 생겨서 메모를 가져올 수 없습니다');
         }
       });
-      }, []);
-
+    }, []);
+    
     return (
     <>
     <div>

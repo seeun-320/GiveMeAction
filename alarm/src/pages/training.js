@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Component } from 'react';
+import React from 'react';
 // import { View } from 'react-native';
 
-import { Link } from 'react-router-dom';
 // import { Camera } from 'expo-camera';
 
 import './training.css';
@@ -11,7 +10,7 @@ function Training() {
 
     return  <>
         
-        <body>
+        <div>
             <p id="title">Give Me Action!</p>
             <div id="box" className="Tdiv">
                 <div id="camshow" className="Tdiv">
@@ -28,7 +27,7 @@ function Training() {
             {/* style={{border: "none", borderRadius:"100px", backgroundColor:"dimgray", width:"200px", height:"50px", fontSize:"15px"}} */}
             <p ><button className="Tbutton" style={{ backgroundColor: "dimgray" }} >force quit</button></p>
 
-        </body>
+        </div>
     </>
 
 }
