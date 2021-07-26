@@ -1,0 +1,49 @@
+
+.headers{
+    display: flex;
+    justify-content: space-between;
+    margin:5px 10%;
+    border-bottom: 1px solid black
+}
+
+.addBtn{
+    background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer;
+    font-size: 30px;
+    color:orange;
+}
+
+.alarm_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.alarms{
+    border-bottom: 1px solid black;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alarmInner{
+    padding: 8px 25px;
+    color:#818181;
+}
+
+.alarmTime{
+    font-size: 25px;
+}
+
+.smallT{
+    font-size: 15px;
+}
+
+#setColorB{
+    color: black;
+}
+
+#setColorG{
+    color:#818181;
+}

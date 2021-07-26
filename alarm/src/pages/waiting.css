@@ -1,0 +1,16 @@
+.waiting{
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#nowtime{
+    font-size: 100px;
+}
+button{
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 50px;
+}
