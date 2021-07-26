@@ -3,7 +3,7 @@ import Clock from 'react-live-clock';
 
 import { Link } from 'react-router-dom';
 
-import '/Users/seeun/Documents/2021인도인턴/GiveMeAction/blackpig/src/pages/alarm.css';
+import './alarm.css';
 
 var now = new Date();                                                  // 현재시간
 var min = now.getMinutes();
@@ -14,7 +14,7 @@ function Alarm() {
     // printTime();
     return (<>
         <body>
-            <div id="timebox">
+            <div id="timebox" className="alarmdiv">
                 <span id="clock">
                     <Clock format={'HH : mm'} ticking={true}/>
                     
@@ -23,7 +23,7 @@ function Alarm() {
                     <Clock format={'yyyy. MM. DD dddd'}/>
                     </span>
             </div>
-            <div id="btnbox"><button class="btn-1" type="button">start training</button></div>
+            <div id="btnbox" className="alarmdiv"><button id="Abutton" class="btn-1" type="button">start training</button></div>
 
         </body>
     </>)
