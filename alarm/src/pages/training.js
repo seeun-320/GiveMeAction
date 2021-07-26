@@ -1,10 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 // import { View } from 'react-native';
-import Sketch from 'react-p5'
-import ml5 from 'ml5'
-import { Link } from 'react-router-dom';
-// import { Camera } from 'expo-camera';
-
+import Sketch from 'react-p5';
+import ml5 from 'ml5';
 import './training.css';
 
 function Training() {
@@ -33,12 +30,12 @@ function Training() {
             outputs: 7,
             task: 'classification',
             debug: true
-        }
+        };
         brain = ml5.neuralNetwork(options);
         const modelInfo = {
-            model: '../model/model.json',
-            metadata: '../model/model_meta.json',
-            weights: '../model/model.weights.bin',
+            model: '/model/model.json',
+            metadata: '/model/model_meta.json',
+            weights: '/model/model.weights.bin',
         };
         brain.load(modelInfo, brainLoaded);
     };
@@ -54,7 +51,7 @@ function Training() {
 
     const classifyPose = () => {
         detectPose();
-        if (pose && (state == 'ready')) {
+        if (pose && (state === 'ready')) {
             let inputs = [];
             for (let i = 0; i < pose.keypoints.length; i++) {
                 let x = pose.keypoints[i].position.x;
@@ -110,6 +107,8 @@ function Training() {
                 case '6'://left
                 case '7'://right
                     poseLabel = 'squrt';
+                    break;
+                default:
                     break;
             }
             // if(current != poseLabel)
