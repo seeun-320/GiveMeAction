@@ -9,6 +9,7 @@
     "firebase": "^8.8.0",
     "ml5": "^0.6.1",
     "moment-timezone": "^0.5.33",
+    "p5": "^1.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-dragswitch": "^1.0.1",

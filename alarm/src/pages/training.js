@@ -20,9 +20,9 @@ function Training() {
     const ww = window.innerWidth * 0.7;
     const wh = window.innerHeight * 0.7;
 
-    const setup = (p5) => {
-        p5.createCanvas(window.innerWidth * 0.7, window.innerHeight * 0.7);
-        video = p5.createCapture(VIDEO);
+    const setup = (p5, canvasParentRef) => {
+        p5.createCanvas(window.innerWidth * 0.7, window.innerHeight * 0.7).parent(canvasParentRef);
+        video = p5.createCapture(p5.VIDEO);
         video.size(window.innerWidth * 0.7, window.innerHeight * 0.7);
         video.hide();
         poseNet = ml5.poseNet(video, modelLoaded);
@@ -36,9 +36,9 @@ function Training() {
         }
         brain = ml5.neuralNetwork(options);
         const modelInfo = {
-            model: 'model/model.json',
-            metadata: 'model/model_meta.json',
-            weights: 'model/model.weights.bin',
+            model: '../model/model.json',
+            metadata: '../model/model_meta.json',
+            weights: '../model/model.weights.bin',
         };
         brain.load(modelInfo, brainLoaded);
     };
@@ -129,9 +129,9 @@ function Training() {
         }
     };
 
-    const draw = () => {
+    const draw = (p5) => {
         p5.push();
-        p5.translate(video.width, 0);
+        p5.translate(p5.width, 0);
         p5.scale(-1, 1);
         p5.image(video, 0, 0, window.innerWidth * 0.7, window.innerHeight * 0.7);
 
@@ -163,12 +163,13 @@ function Training() {
         document.getElementById("test").innerHTML = poseLabel;
     };
 
-    const windowResized = () => {
+    const windowResized = (p5) => {
         p5.resizeCanvas(window.innerWidth * 0.7, window.innerHeight * 0.7, true);
     }
 
     //training page
     return <>
+    
         <body>
             <h1 id="title">Give Me Action!</h1>
             <h2 id="test"></h2>
