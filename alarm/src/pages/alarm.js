@@ -8,10 +8,11 @@ import sound1 from '../queen-samantha-give-me-action.mp3'
 function Alarm({location, history}) {
     // const sound = location.search.split(/[=|&]/)[1]
     const pose = location.search.split(/[=|&]/)[3]
+    const ids = location.search.split(/[=|&]/)[5]
 
 
     function goTrain(){
-        history.push('/training?pose='+pose)
+        history.push('/training?pose='+pose+'&id='+ids)
     }
     // printTime();
      
