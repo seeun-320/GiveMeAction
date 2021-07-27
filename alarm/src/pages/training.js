@@ -7,8 +7,8 @@ import Waiting from './Waiting';
 
 
 function Training({location, history}) {
-    //const poseCompare = location.search.split(/[=|&]/)[3];
-    const poseCompare = 'lunge'
+    const poseCompare = location.search.split(/[=|&]/)[3];
+    //const poseCompare = 'lunge'
 
    let video;
 
