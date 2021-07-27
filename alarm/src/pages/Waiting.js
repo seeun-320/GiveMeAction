@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Clock from 'react-live-clock';
 
+import alarmOn from '../functions/alarmOn';
+
 import './waiting.css';
 
 class Waiting extends Component{
+
     render(){
+      alarmOn()
         return (
           <>
           <div className="waiting">

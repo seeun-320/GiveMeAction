@@ -7,7 +7,7 @@ async function getAlarmList(callback) {
     .get()
     .then((docs)=>{
       docs.forEach(doc => {
-        alarm_list.push({ time: doc.data().time, isOn: doc.data().isOn, id: doc.id });   
+        alarm_list.push({ time: doc.data().time, isOn: doc.data().isOn, id: doc.id, sound:doc.data().sound,pose:doc.data().pose });   
       });
       console.log(alarm_list)
     })
