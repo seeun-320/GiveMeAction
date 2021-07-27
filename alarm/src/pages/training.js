@@ -5,11 +5,18 @@ import ml5 from 'ml5';
 import './training.css';
 import Waiting from './Waiting';
 
+<<<<<<< HEAD
 
 function Training({location, history}) {
     //const poseCompare = location.search.split(/[=|&]/)[3]
     const poseCompare = 'squat'
     let video;
+=======
+function Training({location, history}) {
+    const poseCompare = location.search.split(/[=|&]/)[3];
+
+   let video;
+>>>>>>> 0dd28cb7b6a5137674a632c3f8eb63fdf533eeac
     let poseNet;
     let pose;
     let skeleton;
@@ -23,11 +30,26 @@ function Training({location, history}) {
     const ww = window.innerWidth * 0.7;
     const wh = window.innerHeight * 0.7;
 
+
+    let pictureShow = document.getElementById('picture');
+    if (poseCompare === "squat") {
+        pictureShow.innerHTML = "<img src=\"https://health.chosun.com/site/data/img_dir/2021/05/20/2021052000854_0.jpg\"/>";
+    }
+    else if(poseCompare === "lunge") {
+        pictureShow.innerHTML = "<img src=\"https://i.pinimg.com/236x/5f/7d/c8/5f7dc80ea92d9931ae68c6ff5e56eefd.jpg\"/>";
+    }
+    else if (poseCompare === "triangle") {
+        pictureShow.innerHTML = "<img src=\"https://t1.daumcdn.net/cfile/blog/131AAE454DF572B00E\"/>";
+    }
+
+
     const setup = (p5, canvasParentRef) => {
+        
         p5.createCanvas(window.innerWidth * 0.7, window.innerHeight * 0.7).parent(canvasParentRef);
         video = p5.createCapture(p5.VIDEO);
         video.size(window.innerWidth * 0.7, window.innerHeight * 0.7);
         video.hide();
+        
         poseNet = ml5.poseNet(video, modelLoaded);
         poseNet.on('pose', gotPoses);
 
@@ -207,7 +229,12 @@ function Training({location, history}) {
         <body>
             <h1 id="title">Give Me Action!</h1>
             <h2 id="test"></h2>
-            <Sketch setup={setup} draw={draw} windowResized={windowResized}/>
+            {/* <div id="cam"> */}
+                <Sketch setup={setup} draw={draw} windowResized={windowResized}/>
+                {/* </div> */}
+            <div id="picture">
+                
+            </div>
         </body>
     </>
 
