@@ -1,22 +1,32 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 // import { View } from 'react-native';
 import Sketch from 'react-p5';
 import ml5 from 'ml5';
 import './training.css';
 import Waiting from './Waiting';
 
-<<<<<<< HEAD
+
 
 function Training({location, history}) {
-    //const poseCompare = location.search.split(/[=|&]/)[3]
-    const poseCompare = 'squat'
+    const poseCompare = location.search.split(/[=|&]/)[1]
+    // const poseCompare = 'squat'
+    function picshow() {
+        console.log(poseCompare);
+        var pictureShow = window.document.getElementById('picture');
+        if (poseCompare === 'squat') {
+            pictureShow.innerHTML = "<img src=\"https://health.chosun.com/site/data/img_dir/2021/05/20/2021052000854_0.jpg\" style=\"width:300px\"/>";
+        }
+        else if(poseCompare === 'lunge') {
+            pictureShow.innerHTML = "<img src=\"https://i.pinimg.com/236x/5f/7d/c8/5f7dc80ea92d9931ae68c6ff5e56eefd.jpg\" style=\"width:300px\"/>";
+        }
+        else if (poseCompare === 'triangle') {
+            pictureShow.innerHTML = "<img src=\"https://t1.daumcdn.net/cfile/blog/131AAE454DF572B00E\" style=\"width:300px\"/>";
+        }
+        else {
+            pictureShow.innerHTML = "<img src=\"https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg\" style=\"width:300px\"/>";
+        }
+    }
     let video;
-=======
-function Training({location, history}) {
-    const poseCompare = location.search.split(/[=|&]/)[3];
-
-   let video;
->>>>>>> 0dd28cb7b6a5137674a632c3f8eb63fdf533eeac
     let poseNet;
     let pose;
     let skeleton;
@@ -31,16 +41,7 @@ function Training({location, history}) {
     const wh = window.innerHeight * 0.7;
 
 
-    let pictureShow = document.getElementById('picture');
-    if (poseCompare === "squat") {
-        pictureShow.innerHTML = "<img src=\"https://health.chosun.com/site/data/img_dir/2021/05/20/2021052000854_0.jpg\"/>";
-    }
-    else if(poseCompare === "lunge") {
-        pictureShow.innerHTML = "<img src=\"https://i.pinimg.com/236x/5f/7d/c8/5f7dc80ea92d9931ae68c6ff5e56eefd.jpg\"/>";
-    }
-    else if (poseCompare === "triangle") {
-        pictureShow.innerHTML = "<img src=\"https://t1.daumcdn.net/cfile/blog/131AAE454DF572B00E\"/>";
-    }
+    
 
 
     const setup = (p5, canvasParentRef) => {
@@ -222,7 +223,9 @@ function Training({location, history}) {
     const windowResized = (p5) => {
         p5.resizeCanvas(window.innerWidth * 0.7, window.innerHeight * 0.7, true);
     }
-
+    useEffect(()=>{
+        picshow();
+    },[])
     //training page
     return <>
     
