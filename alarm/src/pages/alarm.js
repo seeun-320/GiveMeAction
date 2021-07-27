@@ -3,11 +3,10 @@ import Clock from 'react-live-clock';
 
 import { Link } from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
-
-
-
-
 import './alarm.css';
+
+import Iframe from 'react-iframe'
+
 
 var now = new Date();                                                  // 현재시간
 var min = now.getMinutes();
@@ -28,15 +27,28 @@ function Alarm() {
         <body>
 
             {/* 이거 소리나는 코드 */}
-            <audio id="sound"loop autoPlay controls>
+            {/* <audio id="sound" loop autoPlay controls>
                 <source src="https://t1.daumcdn.net/cfile/tistory/99B972335F720D1502?original" />
                 <embed src="https://t1.daumcdn.net/cfile/tistory/99B972335F720D1502?original" width="320" height="45" type="audio/mpeg" />
 
-            </audio>
+            </audio> */}
+
+            <video src="https://youtu.be/DjYTEfWuVes" id="sound" loop autoPlay controls>
+                {/* <source src="https://youtu.be/DjYTEfWuVes" /> */}
+                {/* <embed src="https://www.youtube.com/watch?v=uvdC5FooVEU" width="320" height="45" type="audio/mpeg" /> */}
+
+            </video>
+
+            {/* <Iframe loop url="https://t1.daumcdn.net/cfile/tistory/99B972335F720D1502?original"
+                width="450px"
+                height="450px"
+                id="myId"
+                className="myClassname"
+                display="inline"
+                position="relative"
+                allow="autoPlay" /> */}
 
         
-
-
             <div id="timebox" className="alarmdiv">
                 <span id="clock">
                     <Clock format={'HH : mm'} ticking={true} />
