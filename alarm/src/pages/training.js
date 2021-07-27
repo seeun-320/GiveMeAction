@@ -6,7 +6,6 @@ import './training.css';
 import Waiting from './Waiting';
 
 
-
 function Training({location, history}) {
     const poseCompare = location.search.split(/[=|&]/)[1]
     // const poseCompare = 'squat'
