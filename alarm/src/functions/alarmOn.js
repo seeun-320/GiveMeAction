@@ -17,7 +17,7 @@ function alarmOn() {
         var minutes = ('0' + today.getMinutes()).slice(-2);
         let now = hours+":"+minutes
         console.log(now);
-        alarms.map((alarm)=>{
+        alarms && alarms.map((alarm)=>{
             if(alarm.time === now && alarm.isOn===true){
                 window.location.replace('/alarm?sound='+alarm.sound+'&pose='+alarm.pose)
             }
