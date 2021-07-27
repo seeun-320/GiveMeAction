@@ -7,20 +7,13 @@ import Waiting from './Waiting';
 
 
 function Training({location, history}) {
-<<<<<<< HEAD
-    const poseCompare = location.search.split(/[=|&]/)[3];
-    //const poseCompare = 'lunge'
-
-   let video;
-
-=======
     const poseCompare = location.search.split(/[=|&]/)[1]
     // const poseCompare = 'squat'
     function picshow() {
         console.log(poseCompare);
         var pictureShow = window.document.getElementById('picture');
         if (poseCompare === 'squat') {
-            pictureShow.innerHTML = "<img src=\"https://health.chosun.com/site/data/img_dir/2021/05/20/2021052000854_0.jpg\" style=\"width:300px\"/>";
+            pictureShow.innerHTML = "<img src=\"https://health.chosun.com/ site/data/img_dir/2021/05/20/2021052000854_0.jpg\" style=\"width:300px\"/>";
         }
         else if(poseCompare === 'lunge') {
             pictureShow.innerHTML = "<img src=\"https://i.pinimg.com/236x/5f/7d/c8/5f7dc80ea92d9931ae68c6ff5e56eefd.jpg\" style=\"width:300px\"/>";
@@ -33,13 +26,11 @@ function Training({location, history}) {
         }
     }
     let video;
->>>>>>> 92d5e5e482911cc35ce3a5789d245c5e542fce89
     let poseNet;
     let pose;
     let skeleton;
     let count =0;
     let camera=0;
-    
 
     let brain;
     let poseLabel = "loading...";
@@ -50,6 +41,7 @@ function Training({location, history}) {
 
 
     
+
 
     const setup = (p5, canvasParentRef) => {
         
@@ -103,6 +95,14 @@ function Training({location, history}) {
 
 
     const detectPose = () => {
+        camera++;
+                console.log(camera);
+                if(camera >= 1000)
+                {
+                    alert('Please come to camera');
+                    goToWait();
+                    
+                }
         state = 'waiting'
         if (pose) {
             let nose = pose.keypoints[0].score;
@@ -154,14 +154,9 @@ function Training({location, history}) {
             } else {
                 poseLabel = 'analyzing...';
             }
-
             if( poseLabel == poseCompare)//같으면 알람이 멈추게 끔 하면 된다..
             {
-                poseCount++;
-                if(poseCount >= 500)//특정 시간 동안 유지 해야한다..
-                {
-                    goToWait();
-                }
+                goToWait();
             }
             else
             {
