@@ -7,10 +7,6 @@ import Waiting from './Waiting';
 
 
 function Training({location, history}) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 592cc71510116ad22baf880394e2618e5f1c3ec2
     const poseCompare = location.search.split(/[=|&]/)[1]
     // const poseCompare = 'squat'
     function picshow() {
@@ -30,10 +26,6 @@ function Training({location, history}) {
         }
     }
     let video;
-<<<<<<< HEAD
-=======
-
->>>>>>> 592cc71510116ad22baf880394e2618e5f1c3ec2
     let poseNet;
     let pose;
     let skeleton;
@@ -104,14 +96,7 @@ function Training({location, history}) {
 
 
     const detectPose = () => {
-        camera++;
-                console.log(camera);
-                if(camera >= 1000)
-                {
-                    alert('Please come to camera');
-                    goToWait();
-                    
-                }
+       
         state = 'waiting'
         if (pose) {
             let nose = pose.keypoints[0].score;
