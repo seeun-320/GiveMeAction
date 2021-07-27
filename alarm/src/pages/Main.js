@@ -1,11 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Clock from 'react-live-clock';
 import './main.css';
 
 import getAlarmList from '../functions/getAlarmList';
 import alarmOn from '../functions/alarmOn';
 
 import Alarm from '../components/Alarm';
+
+
 
 function Main() {
     const [list, setList] = useState([]);
@@ -23,20 +26,21 @@ function Main() {
     }, []);
     
     return (
+
     <>
-    <div>
+      <div>
         <div className="headers">
-            <div><Link to={'/add'} className="addBtn">+</Link></div>
-            <div><Link to={'/wait'} className="addBtn">x</Link></div>
+          <div><Link to={'/add'} className="addBtn">+</Link></div>
+          <div><Link to={'/wait'} className="addBtn">x</Link></div>
         </div>
-      <div className="alarm_list">
+        <div className="alarm_list">
           {
             list.map(alarm => (
-                <Alarm key={alarm.id} id={alarm.id} time={alarm.time} isOn={alarm.isOn}/>
+              <Alarm key={alarm.id} id={alarm.id} time={alarm.time} isOn={alarm.isOn} />
             ))
           }
+        </div>
       </div>
-    </div>
     </>
   )
 }
