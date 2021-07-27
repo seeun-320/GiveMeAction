@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from 'react';
+import React from 'react';
 // import { View } from 'react-native';
 import Sketch from 'react-p5';
 import ml5 from 'ml5';

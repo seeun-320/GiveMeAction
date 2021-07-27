@@ -6,11 +6,13 @@ import './add.css';
 import addAlarmList from '../functions/addAlarmList';
 
 function Adding({history}) {
-    let nowtime = new Date()
-    nowtime = nowtime.getHours().toString() + ":" + nowtime.getMinutes().toString()
+    var today = new Date(); 
+    var hours = ('0' + today.getHours()).slice(-2);
+    var minutes = ('0' + today.getMinutes()).slice(-2);
+    let nowtime = hours+":"+minutes
         
     const [time, setTime] = useState(nowtime)
-    const [sound, setSound] = useState('Give Me Action!')
+    const [sound, setSound] = useState('sound1')
     const [pose, setPose] = useState('squat')
 
     function handleTime(e){
@@ -38,7 +40,6 @@ function Adding({history}) {
                 alert('Error!')
             }
         })
-        // console.log(input)
     }
  
   return (
@@ -70,10 +71,10 @@ function Adding({history}) {
             <div className="setSound">
                 sound
             </div>
-            <select className="selectbox" onChange={handleSound} value={sound}>
-                <option>Give Me Action!</option>
-                <option>Reflection</option>
-                <option>Marimba</option>
+            <select className="selectbox" onChange={handleSound}>
+                <option value='sound1'>Give Me Action!</option>
+                <option value='sound2'>Reflection</option>
+                <option value='sound3'>Marimba</option>
             </select>
         </div>
         <div className="setOther">
