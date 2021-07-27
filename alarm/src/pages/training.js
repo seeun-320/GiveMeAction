@@ -5,8 +5,8 @@ import React from 'react';
 
 import './training.css';
 
-function Training() {
-    
+function Training({location, history}) {
+    const pose = location.search.split(/[=|&]/)[3]
 
     return  <>
         

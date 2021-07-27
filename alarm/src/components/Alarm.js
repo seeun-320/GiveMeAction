@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import { firestore } from "../firebase";
 
 import { DragSwitch } from 'react-dragswitch'
+import { RiChatDeleteLine } from "react-icons/ri";
+import { BiCommentEdit } from "react-icons/bi";
+
+import deleteAlarm from '../functions/deleteAlarm';
 import 'react-dragswitch/dist/index.css'
 
-const Alarm = ({time, isOn, id}) => {
+const Alarm = ({time, isOn, id, history}) => {
     let time1="AM", time2=time
     let setColor='setColorB'
     if(!isOn) setColor='setColorG'
@@ -30,6 +34,14 @@ const Alarm = ({time, isOn, id}) => {
           }
         }
 
+        function editAlarm(){
+            history.push('/add?id='+id)
+        }
+        async function godeleteAlarm(){
+            await deleteAlarm(id)
+            window.location.reload()
+        }
+
   return (
     <div className="alarms">
         <div className="alarmInner" >
@@ -37,7 +49,8 @@ const Alarm = ({time, isOn, id}) => {
                 <span className="smallT">{time1} </span>{time2}
             </div>
             <div>
-                <span className="smallT">Alarm</span>
+                <button onClick={godeleteAlarm} style={{fontSize:'0'}}><RiChatDeleteLine size='20px'/></button>
+                <button onClick={editAlarm} style={{fontSize:'0'}}><BiCommentEdit size='20px'/></button>
             </div>
         </div>
         <div className="alarmInner">

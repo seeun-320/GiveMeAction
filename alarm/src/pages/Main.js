@@ -10,7 +10,7 @@ import Alarm from '../components/Alarm';
 
 
 
-function Main() {
+function Main({history}) {
     const [list, setList] = useState([]);
 
     useEffect(() => {
@@ -36,7 +36,7 @@ function Main() {
         <div className="alarm_list">
           {
             list.map(alarm => (
-              <Alarm key={alarm.id} id={alarm.id} time={alarm.time} isOn={alarm.isOn} />
+              <Alarm history={history} key={alarm.id} id={alarm.id} time={alarm.time} isOn={alarm.isOn} />
             ))
           }
         </div>
