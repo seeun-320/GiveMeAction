@@ -23,6 +23,8 @@ function Main({history}) {
           alert('서버에 오류가 생겨서 메모를 가져올 수 없습니다');
         }
       });
+
+      return()=>{clearInterval()}
     }, []);
     
     return (

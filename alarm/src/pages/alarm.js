@@ -3,6 +3,7 @@ import Clock from 'react-live-clock';
 
 import ReactAudioPlayer from 'react-audio-player';
 import './alarm.css';
+import sound1 from '../queen-samantha-give-me-action.mp3'
 
 function Alarm({location, history}) {
     // const sound = location.search.split(/[=|&]/)[1]
@@ -18,7 +19,7 @@ function Alarm({location, history}) {
 
         <div>
         <ReactAudioPlayer
-            src="https://t1.daumcdn.net/cfile/tistory/99B972335F720D1502?original"
+            src={sound1}
             autoPlay={true}
             loop
         />

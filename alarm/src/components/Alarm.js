@@ -35,7 +35,8 @@ const Alarm = ({time, isOn, id, history}) => {
         }
 
         function editAlarm(){
-            history.push('/add?id='+id)
+            // history.push()
+            window.location.replace('/add?id='+id)
         }
         async function godeleteAlarm(){
             await deleteAlarm(id)
