@@ -7,13 +7,7 @@ import Waiting from './Waiting';
 
 
 function Training({location, history}) {
-<<<<<<< HEAD
-    const poseCompare = location.search.split(/[=|&]/)[3];
-    //const poseCompare = 'lunge'
 
-   let video;
-
-=======
     const poseCompare = location.search.split(/[=|&]/)[1]
     // const poseCompare = 'squat'
     function picshow() {
@@ -33,12 +27,12 @@ function Training({location, history}) {
         }
     }
     let video;
->>>>>>> 92d5e5e482911cc35ce3a5789d245c5e542fce89
+
     let poseNet;
     let pose;
     let skeleton;
     let count =0;
-    let camera=0;
+    let poseCount=0;
     
 
     let brain;
