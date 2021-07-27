@@ -4,8 +4,6 @@ import Sketch from 'react-p5';
 import ml5 from 'ml5';
 import './training.css';
 
-
-<<<<<<< HEAD
 function Training({location, history}) {
     const poseCompare = location.search.split(/[=|&]/)[3];
 
