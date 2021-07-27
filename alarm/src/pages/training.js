@@ -3,12 +3,18 @@ import React from 'react';
 import Sketch from 'react-p5';
 import ml5 from 'ml5';
 import './training.css';
+import Waiting from './Waiting';
 
-function Training() {
+
+function Training({location, history}) {
+    //const poseCompare = location.search.split(/[=|&]/)[3]
+    const poseCompare = 'squat'
     let video;
     let poseNet;
     let pose;
     let skeleton;
+    let count =0;
+    let camera=0;
 
     let brain;
     let poseLabel = "loading...";
@@ -65,7 +71,16 @@ function Training() {
         }
     };
 
+
     const detectPose = () => {
+        camera++;
+                console.log(camera);
+                if(camera >= 1000)
+                {
+                    alert('Please come to camera');
+                    goToWait();
+                    
+                }
         state = 'waiting'
         if (pose) {
             let nose = pose.keypoints[0].score;
@@ -87,6 +102,7 @@ function Training() {
     };
 
     const gotResult = (error, results) => {
+        console.log('결과 받으러');
         if (error) {
             console.log(error);
             return;
@@ -106,20 +122,39 @@ function Training() {
                     break;
                 case '6'://left
                 case '7'://right
-                    poseLabel = 'squrt';
+                    poseLabel = 'squat';
                     break;
                 default:
                     break;
+                }
+                // if(current != poseLabel)
+                //   poseLabel = 'analyzing...'
+            } else {
+                poseLabel = 'analyzing...';
             }
-            // if(current != poseLabel)
-            //   poseLabel = 'analyzing...'
-        } else {
-            poseLabel = 'analyzing...';
-        }
+            if( poseLabel == poseCompare)//같으면 알람이 멈추게 끔 하면 된다..
+            {
+                goToWait();
+            }
+            else
+            {
+                count++;
+                console.log(count);
+                if(count >= 1000)
+                {
+                    alert('Ooooop ! After 10 minutes, the alarm will play again. ');
+                    goToWait();
+                }
+
+            }
         //console.log(results[0].confidence);
         classifyPose();
         // setTimeout(classifyPose, 800);
     };
+
+    const goToWait = () => {
+        history.push('/wait');
+      }
 
     const gotPoses = (poses) => {
         if (poses.length > 0) {
