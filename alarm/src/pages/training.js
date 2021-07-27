@@ -5,23 +5,19 @@ import ml5 from 'ml5';
 import './training.css';
 import Waiting from './Waiting';
 
-<<<<<<< HEAD
 
 function Training({location, history}) {
-    //const poseCompare = location.search.split(/[=|&]/)[3]
-    const poseCompare = 'squat'
-    let video;
-=======
-function Training({location, history}) {
-    const poseCompare = location.search.split(/[=|&]/)[3];
+    //const poseCompare = location.search.split(/[=|&]/)[3];
+    const poseCompare = 'lunge'
 
    let video;
->>>>>>> 0dd28cb7b6a5137674a632c3f8eb63fdf533eeac
+
     let poseNet;
     let pose;
     let skeleton;
     let count =0;
     let camera=0;
+    
 
     let brain;
     let poseLabel = "loading...";
@@ -41,7 +37,6 @@ function Training({location, history}) {
     else if (poseCompare === "triangle") {
         pictureShow.innerHTML = "<img src=\"https://t1.daumcdn.net/cfile/blog/131AAE454DF572B00E\"/>";
     }
-
 
     const setup = (p5, canvasParentRef) => {
         
@@ -95,14 +90,6 @@ function Training({location, history}) {
 
 
     const detectPose = () => {
-        camera++;
-                console.log(camera);
-                if(camera >= 1000)
-                {
-                    alert('Please come to camera');
-                    goToWait();
-                    
-                }
         state = 'waiting'
         if (pose) {
             let nose = pose.keypoints[0].score;
@@ -154,9 +141,14 @@ function Training({location, history}) {
             } else {
                 poseLabel = 'analyzing...';
             }
+
             if( poseLabel == poseCompare)//같으면 알람이 멈추게 끔 하면 된다..
             {
-                goToWait();
+                poseCount++;
+                if(poseCount >= 500)//특정 시간 동안 유지 해야한다..
+                {
+                    goToWait();
+                }
             }
             else
             {
