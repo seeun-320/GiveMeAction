@@ -1,19 +1,38 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 import './add.css';
 
 import addAlarmList from '../functions/addAlarmList';
+import editAlarm from '../functions/editAlarm';
 
-function Adding({history}) {
-    var today = new Date(); 
+function Adding({location, history}) {
+    var today = new Date();
+    const id = location.search.split(/[=|&]/)[1]
+    let nowtime, setsound='sound1', setpose='squat';
     var hours = ('0' + today.getHours()).slice(-2);
     var minutes = ('0' + today.getMinutes()).slice(-2);
-    let nowtime = hours+":"+minutes
-        
+    nowtime = hours+":"+minutes
+
+    useEffect(()=>{
+        if(id!==undefined){
+            editAlarm({id}, (success, setAlarm)=>{
+                if(!success){
+                    alert('Server is Error!')
+                }else{
+                    setTitle('Edit')
+                    setTime(setAlarm.time)
+                    setSound(setAlarm.sound)
+                    setPose(setAlarm.pose)
+                }
+            })
+        }
+    },[])
+    
     const [time, setTime] = useState(nowtime)
-    const [sound, setSound] = useState('sound1')
-    const [pose, setPose] = useState('squat')
+    const [sound, setSound] = useState(setsound)
+    const [pose, setPose] = useState(setpose)
+    const [title, setTitle] = useState('Add')
 
     function handleTime(e){
         setTime(e.target.value)
@@ -27,6 +46,7 @@ function Adding({history}) {
     }
     function handleSubmit(){
         const input = {
+            id:id,
             time : time,
             isOn : true,
             sound : sound,
@@ -50,7 +70,7 @@ function Adding({history}) {
             cancle
         </Link>
         <div className="whiteT">
-            Add Alarm
+            {title} Alarm
         </div>
         <button className='OrangeT' onClick={handleSubmit}>
             save
@@ -71,7 +91,7 @@ function Adding({history}) {
             <div className="setSound">
                 sound
             </div>
-            <select className="selectbox" onChange={handleSound}>
+            <select className="selectbox" onChange={handleSound} value={sound}>
                 <option value='sound1'>Give Me Action!</option>
                 <option value='sound2'>Reflection</option>
                 <option value='sound3'>Marimba</option>
@@ -81,7 +101,7 @@ function Adding({history}) {
             <div className="setPose">
                 pose
             </div>
-            <select className="selectbox" onChange={handlePose}>
+            <select className="selectbox" onChange={handlePose} value={pose}>
                 <option>squat</option>
                 <option>lunge</option>
                 <option>triangle</option>

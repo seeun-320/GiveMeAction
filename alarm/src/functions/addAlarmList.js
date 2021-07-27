@@ -2,7 +2,8 @@ import { firestore } from "../firebase";
 
 async function addAlarmList(data, callback) {
   try {
-    await firestore.collection('alarms').doc()
+    console.log(data)
+    await firestore.collection('alarms').doc(data.id)
     .set({
         time : data.time,
         isOn : data.isOn,
