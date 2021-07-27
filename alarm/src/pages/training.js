@@ -5,18 +5,11 @@ import ml5 from 'ml5';
 import './training.css';
 import Waiting from './Waiting';
 
-<<<<<<< HEAD
 
 function Training({location, history}) {
     //const poseCompare = location.search.split(/[=|&]/)[3]
     const poseCompare = 'squat'
     let video;
-=======
-function Training({location, history}) {
-    const poseCompare = location.search.split(/[=|&]/)[3];
-
-   let video;
->>>>>>> 0dd28cb7b6a5137674a632c3f8eb63fdf533eeac
     let poseNet;
     let pose;
     let skeleton;
