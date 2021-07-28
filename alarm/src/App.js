@@ -10,7 +10,6 @@ import Adding from './pages/Add';
 import Waiting from './pages/Waiting';
 import Alarm from './pages/alarm';
 import Training from './pages/training';
-import Edit from './pages/Edit'
 
 import './App.css';
 
@@ -20,7 +19,6 @@ function App() {
       <Switch>
         <Route path='/' component={Main} exact/>
         <Route path='/add' component={Adding}/>
-        <Route path='/edit' component={Edit}/>
         <Route path='/wait' component={Waiting}/>
         <Route path='/alarm' component={Alarm}/>
         <Route path='/training' component={Training}/>

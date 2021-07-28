@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Clock from 'react-live-clock';
 import './main.css';
 
 import getAlarmList from '../functions/getAlarmList';
