@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
+import {Panel} from '@enact/sandstone/Panels';
+
 import './add.css';
 
 import addAlarmList from '../functions/addAlarmList';
@@ -63,7 +65,7 @@ function Adding({location, history}) {
     }
  
   return (
-    <>
+    <Panel>
     <div className="bod">
     <div className="header">
         <Link className="OrangeT" to={'/'}>
@@ -110,7 +112,7 @@ function Adding({location, history}) {
         </div>
     </div>  
 
-    </>
+    </Panel>
   )
 }
 

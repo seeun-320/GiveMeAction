@@ -1,6 +1,8 @@
 import React from 'react';
 import Clock from 'react-live-clock';
 
+import Panels, {Panel} from '@enact/sandstone/Panels';
+
 import ReactAudioPlayer from 'react-audio-player';
 import './alarm.css';
 import sound1 from '../queen-samantha-give-me-action.mp3'
@@ -23,7 +25,7 @@ function Alarm({location, history}) {
         history.push('/training?pose='+pose+'&id='+ids)
     }
     // printTime();
-    return (<>
+    return (<Panels>
 
         <div>
 
@@ -50,7 +52,7 @@ function Alarm({location, history}) {
             <div id="btnbox" className="alarmdiv"><button id="Abutton" className="btn-1" type="button" onClick={goTrain}>start training</button></div>
 
         </div>
-    </>)
+    </Panels>)
 
 }
 

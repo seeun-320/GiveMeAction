@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
+import {Panel} from '@enact/sandstone/Panels';
 // import { View } from 'react-native';
 import Sketch from 'react-p5';
 import ml5 from 'ml5';
 import './training.css';
-import Waiting from './Waiting';
 import { firestore } from '../firebase';
 
 function Training({location, history}) {
@@ -248,7 +248,7 @@ function Training({location, history}) {
         picshow();
     },[])
     //training page
-    return <>
+    return <Panel>
     
         <body>
             <h1 id="title">Give Me Action!</h1>
@@ -260,7 +260,7 @@ function Training({location, history}) {
                 
             </div>
         </body>
-    </>
+    </Panel>
 
 }
 
