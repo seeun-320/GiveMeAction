@@ -157,7 +157,7 @@ function Training({location, history}) {
             {
                 count++;
                 console.log(count);
-                if(count >= 1000)
+                if(count >= 100)
                 {
                     let timeSet;
                     alert('Ooooop ! After 10 minutes, the alarm will play again. ');
