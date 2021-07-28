@@ -4,10 +4,11 @@ import Sketch from 'react-p5';
 import ml5 from 'ml5';
 import './training.css';
 import Waiting from './Waiting';
-
+import { firestore } from '../firebase';
 
 function Training({location, history}) {
     const poseCompare = location.search.split(/[=|&]/)[1]
+    const ids = location.search.split(/[=|&]/)[3]
     // const poseCompare = 'squat'
     function picshow() {
         console.log(poseCompare);
@@ -117,7 +118,7 @@ function Training({location, history}) {
         }
     };
 
-    const gotResult = (error, results) => {
+    const gotResult = async (error, results) => {
         console.log('결과 받으러');
         if (error) {
             console.log(error);
@@ -158,8 +159,25 @@ function Training({location, history}) {
                 console.log(count);
                 if(count >= 1000)
                 {
+                    let timeSet;
                     alert('Ooooop ! After 10 minutes, the alarm will play again. ');
-                    goToWait();
+                    await firestore.collection('alarms').doc(ids)
+                    .get().then((data)=>{
+                        console.log(data.data())
+                        let hour = data.data().time[0]+data.data().time[1]
+                        let mini = data.data().time[3]+data.data().time[4]
+                        mini = Number(mini)+10
+                        if((Number(mini))>=60){
+                            hour = (Number(hour)+1)%24
+                            mini = Number(mini)%60
+                        }
+
+                        timeSet = hour + ":" + mini
+                    })
+                    await firestore.collection('alarms').doc(ids)
+                    .update({time: timeSet}).then(()=>{
+                    })
+                    window.location.replace('/wait')
                 }
 
             }
@@ -168,9 +186,19 @@ function Training({location, history}) {
         // setTimeout(classifyPose, 800);
     };
 
-    const goToWait = () => {
-        history.push('/wait');
-      }
+    async function goToWait() {
+        console.log("Here")
+        try {
+            await firestore.collection('alarms').doc(ids)
+            .update({isOn : false}).then(()=>{
+            })
+          } catch (err) {
+            console.log(err);
+          }
+          window.location.replace('/wait');
+        }
+      
+    
 
     const gotPoses = (poses) => {
         if (poses.length > 0) {

@@ -19,7 +19,7 @@ function alarmOn() {
         console.log(now);
         alarms && alarms.map((alarm)=>{
             if(alarm.time === now && alarm.isOn===true){
-                window.location.replace('/alarm?sound='+alarm.sound+'&pose='+alarm.pose)
+                window.location.replace('/alarm?sound='+alarm.sound+'&pose='+alarm.pose+'&id='+alarm.id)
             }
             return 0
         })
