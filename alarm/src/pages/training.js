@@ -160,7 +160,7 @@ function Training({location, history}) {
                 if(count >= 100)
                 {
                     let timeSet;
-                    alert('Ooooop ! After 10 minutes, the alarm will play again. ');
+                    alert('Ooooop ! After 10 minutes, the alarm will go off again. ');
                     await firestore.collection('alarms').doc(ids)
                     .get().then((data)=>{
                         console.log(data.data())
