@@ -1,0 +1,64 @@
+html{
+    background-color: white;
+}
+
+.bod{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+a{
+    text-decoration-line: none;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:5px 12%;
+}
+
+.OrangeT{
+    color:orange;
+    font-size: 30px;
+}
+
+.whiteT{
+    color: black;
+    font-size: 50px;
+}
+
+.main{
+    margin:5px 12%;
+    font-size:40px;
+    color:black;
+}
+
+.setTime{
+    height: 120px;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setOther{
+    border-top:1px solid black;
+    height: 60px;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputTime{
+    border:none;
+    outline: none;
+    font-size:20px;
+}
+
+.selectbox{
+    border:none;
+    font-size: 15px;
+    outline:none;
+}

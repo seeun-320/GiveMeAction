@@ -1,0 +1,12 @@
+{
+	"id": "practice",
+	"version": "1.0.0",
+	"vendor": "LGE-SVL",
+	"type": "web",
+	"main": "index.html",
+	"title": "Give Me Action!",
+	"icon": "action.png",
+	"miniicon": "action.png",
+	"largeIcon": "action.png",
+	"uiRevision": 2
+}
