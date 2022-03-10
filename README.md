@@ -3,7 +3,7 @@
 # 2021 LG Soft India Internship
 
 ```
-`TEAM : BLACKPIG`
+✔️TEAM : BLACKPIG
 Minji Kim (Backend)
 Myeongju Jung (Backend)
 SeEun Lee (Frontend)
@@ -23,7 +23,7 @@ SeugnSin Yi (Frontend)
 
 - [Problem Statement](#Problem-Statement)
 - [Purpose](#Purpose)
-- [Tech Stack](#Tech Stack)
+- [Tech Stack](#Tech-Stack)
 - [Result](#Result)
 - [Demo](#Demo)
 --------------------------------------------
