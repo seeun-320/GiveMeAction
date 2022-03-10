@@ -53,7 +53,7 @@ SeugnSin Yi (Frontend)
 - React
 - Redux
 - P5.js
-- 
+
 # Backend
 - Node.js
 - Koa
