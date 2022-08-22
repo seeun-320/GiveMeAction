@@ -4,6 +4,7 @@
 
 ```
 ✔️TEAM : BLACKPIG
+
 Minji Kim (Backend)
 Myeongju Jung (Backend)
 SeEun Lee (Frontend)
