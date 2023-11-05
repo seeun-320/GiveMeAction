@@ -57,10 +57,10 @@ SeugnSin Yi (Frontend)
 
 # Backend
 - Node.js
-- Koa
+
 
 # Database
-- MongoDB
+- Firebase
 
 # Pose Model
 - Posenet
